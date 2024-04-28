@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #4448FF;
+}
+.navigation{
+    position: relative;
+    width: 450px;
+    height: 80px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.navigation ul{
+    position: relative;
+    width: 400px;
+    display: flex;
+}
+.navigation ul li{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    list-style: none;
+}
+.navigation ul li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #333;
+    text-decoration: none;
+}
+.navigation ul li a .icon{
+    display: block;
+    font-size: 1.4em;
+    line-height: 80px;
+    transition: 0.25s;
+}
+.navigation ul li.active a .icon{
+    transform: translateY(-8px);
+    color: rgb(80,68,255);
+}
+.navigation ul li a .text{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 0.9em;
+    transition: 0.25s;
+}
+.navigation ul li.active a .text{
+    transform: translateY(-30px);
+    color: rgb(80,68,255);
+}
+.indicator{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transition: 0.25s;
+}
+.indicator div{
+    position: absolute;
+    width: 15px;
+    height: 12px;
+    background-color: #4448FF;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.indicator div::before,
+.indicator div::after{
+    position: absolute;
+    content: '';
+    top: 0px;
+    width: 10px;
+    height: 7px;
+    background-color: transparent;
+}
+.indicator div::before{
+    left: -10px;
+    border-radius: 0% 100% 100% 0% / 100% 100% 0% 0%;
+    box-shadow: 5px -4px 0px 4px #4448FF;
+}
+.indicator div::after{
+    right: -10px;
+    border-radius: 100% 0% 100% 0% / 100% 100% 0% 0%;
+    box-shadow: -5px -4px 0px 4px #4448FF;
+}
+.indicator div span{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 2;
+}
+.navigation ul li:nth-child(2).active ~ .indicator{
+    transform: translateX(calc(80px*1));
+}
+.navigation ul li:nth-child(3).active ~ .indicator{
+    transform: translateX(calc(80px*2));
+}
+.navigation ul li:nth-child(4).active ~ .indicator{
+    transform: translateX(calc(80px*3));
+}
+.navigation ul li:nth-child(5).active ~ .indicator{
+    transform: translateX(calc(80px*4));
+}
